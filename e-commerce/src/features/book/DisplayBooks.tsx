@@ -28,7 +28,6 @@ function DisplayBooks(){
             })
             :null
         }
-        <button className="show-more" >Show More</button>
     </div>
 }
 
