@@ -29,7 +29,6 @@ input{
 
 .shipping,.shopping{
     width: 50%;
-    position: relative;
 }
 
 .selected-books{
@@ -53,4 +52,20 @@ input{
     border: none;
     padding: 5px 25px;
     margin: 10px;
+}
+
+@media only screen and (max-width: 660px) {
+    .cart{
+       flex-direction: column; 
+    }
+    .shipping,.shopping{
+    width: 100%;
+    }
+    
+}
+@media only screen and (max-width: 400px) {
+    .address{
+        display: flex;
+       flex-direction: column; 
+  }
 }

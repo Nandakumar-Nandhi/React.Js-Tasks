@@ -17,13 +17,15 @@ export type BookType={
 type InitialState={
     loading:boolean,
     books:BookType[],
-    error:string
+    error:string,
+    count:number,
 }
 
 const initialState : InitialState={
     loading:false,
     books:[],
-    error:''
+    error:'',
+    count:10,
 }
 
 const bookSlice=createSlice({
@@ -35,19 +37,25 @@ const bookSlice=createSlice({
         },
         getBooksSuccess:(state,action)=>{
             state.loading=false;
-            state.books=action.payload;
+            state.books=action.payload.slice(0,state.count);
             state.error=''
         },
         getBooksError:(state,action)=>{
             state.loading=false;
             state.books=[];
             state.error=action.payload.error.message || 'Something Went wrong';
+        },
+        updateBooks:(state)=>{
+            state.count=state.count+10;
+        },
+        reduceBooks:(state) =>{
+            state.count=state.count-10;
         }
 
     },
 
 })
 
-export const {getBooksRequest,getBooksSuccess,getBooksError}=bookSlice.actions;
+export const {getBooksRequest,getBooksSuccess,getBooksError,updateBooks,reduceBooks}=bookSlice.actions;
 
 export default bookSlice.reducer;

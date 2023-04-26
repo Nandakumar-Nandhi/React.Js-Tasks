@@ -36,11 +36,14 @@ function Book(props:any){
         <div className='description'>
             <h2>{title}</h2>
             <p>{props.item.description.slice(0,100)}...</p>
-            <button className='buy-now' 
+        </div>
+        
+        <button className='buy-now' 
                     onClick={()=>buyNow()}>
                 Buy Now
-            </button>
-        </div>
+        </button>
+        
+        
     </div>
 }
 
